@@ -19,9 +19,11 @@ C’est dans son activité de démarchage de nouveaux clients que ce projet vien
 |  En Cours ⌛ |   En Cours ⌛  |   Terminée ✅  |
 
 
-## Mission I
+## Missions
 
-### Application CRM lourde (préconisation : C# / MySQL)
+### Mission I
+
+#### Application CRM lourde (préconisation : C# / MySQL)
 
 → Création d’une application lourde type C# de CRM avec son contenu stocké dans une base de données. Vous
 devez gérer les prospects, les clients et les contacts/rendez-vous et vous inspirerez des fonctionnalités de
@@ -29,18 +31,18 @@ base des produits déjà existants sur le marché. Vous gèrerez également les 
 → Authentification à l’application via les comptes de l’AD.  
 → Réalisation de pages web pour le portail CRM contenant des graphiques (indicateurs) pouvant être exportés au format pdf.
 
-## Mission II
+### Mission II
 
-### Application CRM Web (préconisation : PHP Laravel)
+#### Application CRM Web (préconisation : PHP Laravel)
 
 → Mise en place du portail CRM (Avec écran d’accueil personnalisé sur les rendez-vous à venir)  
 → Récupération des données de l’Active Directory via PHP pour s’authentifier à l’application de CRM web (accès seulement aux commerciaux).  
 → Une page présentant les produits.  
 → Une page permettant de récapituler les achats d’un client.  
 
-## Mission III
+### Mission III
 
-### Création du site internet vitrine (HTML / CSS / JS)
+#### Création du site internet vitrine (HTML / CSS / JS)
 
 → Présentation de l’entreprise  
 → Présentation de ses produits principaux (accès à la base de données)  
