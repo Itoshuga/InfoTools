@@ -1,0 +1,959 @@
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+/* #region [Index Page] */
+
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    display: flex;
+    height: 10vh;
+    width: 80%;
+    margin: auto;
+    align-items: center;
+}
+
+.header {
+    background: linear-gradient(100deg, white 50%, #f38237 50%);
+}
+.menu-btn{
+    font-size: 23px;
+    cursor: pointer;
+    display: block;
+    z-index: 999;
+}
+.menu-btn i.active::before{
+    content:"\f00d";
+}  
+.navbar .nav-btn{
+    position: fixed;
+    height: 50vh;
+    width: 25%;
+    right:-100%;
+    top: 97px;
+    background: rgb(0, 0, 0);
+    text-align: center;
+    padding-top: 80px;
+    transition: all 0.3s ease;
+}
+.navbar .nav-btn.active{
+    right:0;
+}
+.navbar .nav-btn li{
+    display: block;
+}
+.navbar .nav-btn li a{
+    display: inline-block;
+    margin: 5px 0;
+    font-size: 25px;    
+}
+.nav-btn h1{
+    color:white;
+    font-size: 30px;
+    font-weight: 500px;
+}
+
+.nav-links a:hover {
+    color: orange;
+    transition: all 0.5s ease;
+}
+
+.logo-container img {
+    width: 5vh;
+}
+
+.logo-container {
+    flex: 1;
+}
+
+.color-info {
+    color: orange;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 400;
+    margin: 20px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-decoration: overline;
+}
+
+.color {
+    color: orange;
+}
+
+nav {
+    flex: 4;
+}   
+
+.logo-container, .nav-links{
+    display: flex;
+}
+
+.nav-links {
+    justify-content: space-around;
+
+}
+
+a.first {
+    color: orange;
+}
+
+.link {
+    color: #5f5f79;
+    font-size: 18px;
+    text-decoration: none;
+    list-style-type:none;
+    position: relative;
+  }
+
+.link::after {
+    content: '';
+    transform-origin: 0 0; 
+    transform: scaleX(0);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: .1em; 
+    background: black;
+    z-index: -1;
+    opacity: 0.5;
+    transition: transform .3s;
+}
+
+.link:hover::after {
+    transform: scaleX(1);
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.presentation {
+    display: flex;
+    width: 85%;
+    margin: auto;
+    min-height: 80vh;
+    align-items: center;
+}
+
+.introduction {
+    flex: 1;
+}
+
+.text-introduction h1 {
+    font-size: 44px;
+    font-weight: 500;
+    background: linear-gradient(to right, #494964, #6F6F89);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-introduction p {
+    margin-top: 10px;
+    font-size: 22px;
+    color: #585772;
+}
+
+.log-sign {
+    padding: 50px 0px 0px 0px;
+}
+
+.disconnect {
+    background: transparent;
+    border: none;
+    color: white;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 20px;
+    outline: none;
+    transition: all 0.5s ease;
+}
+.disconnect:hover {
+    background: white;
+    color:black;
+}
+
+.image {
+    flex: 1;
+}
+
+.image img {
+    border: solid 2px #FFFFFF;
+    border-radius: 50%;
+    margin-left: 30%;
+    width: 60%;
+}
+
+.bg-noir {
+    border-top: solid 50px navajowhite;
+}
+
+
+
+.small-container {
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.title {
+    padding: 30px 0 0 0;
+    text-align: center;
+    margin: 0 auto 20px;
+    position: relative;
+    line-height: 60px;
+    color: #555;
+}
+
+.pp {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+
+}
+
+.title::after {
+    content: ' ';
+    background: orange;
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.col-3 {
+    flex-basis: 25%;
+    padding: 10px;
+    min-width: 250px;
+    
+}
+
+.col-3 img {
+    width: 100%;
+    transition: transform 0.5s;
+}
+
+.col-3 img:hover {
+    transform: translateY(-5%);
+}
+
+h4 {
+    color: #555;
+    font-weight: normal;
+}
+
+.col-3 p{
+    font-size: 14px;
+}
+
+.btn-container {
+    width: 200px;
+    margin: auto;
+}
+
+.btn-product {
+    background: orange;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    color: white;
+    margin-top: 20%;
+    margin-bottom: 10%;
+    outline: none;
+    border-radius: 50px;
+    transition: background 0.4s;
+}
+
+.btn-product:hover {
+    background: #ffc23f;
+}
+
+/* #endregion */
+
+/* #region [Log In Page] */
+
+.connect-container {
+    display: flex;
+    margin: auto;
+    min-height: 80vh;
+    align-items: center;
+    width:60%;
+    margin: auto;
+    margin-top: 3%;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.image-connect {
+    flex: 1;
+}
+
+.connexion-login, .inscription-register {
+    flex: 2;
+}
+
+.connexion-login h1 {
+    font-size: 32px;
+    font-weight: 500;
+    background: linear-gradient(to right, #494964, #6F6F89);
+    text-align: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.connexion-login p {
+    margin-top: 2%;
+    margin-bottom: 5%;
+    text-align: center;
+    font-size: 16px;
+    color: #585772;
+}
+
+.formulaire-lname {
+    flex: 0.5;
+    position: relative;
+    margin-right: 10%;
+    margin-left: 5%;
+    height: 50px;
+    overflow: hidden;
+}
+
+.formulaire-lname input {
+    width: 100%;
+    height: 100%;
+    color: #595F6E;
+    padding-top: 20px;
+    border: none;
+    outline: none;
+}
+
+.formulaire-lname label {
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+}
+
+.formulaire-lname label::after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid #C36CBB;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.lpseudo-name, .lpassword-name {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
+}
+
+.formulaire-lname input:focus + .label-name .lpseudo-name, 
+.formulaire-lname input:valid + .label-name .lpseudo-name {
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: orange;
+}
+
+.formulaire-lname input:focus + .lpseudo-name::after, 
+.formulaire-lname input:valid + .lpseudo-name::after {
+    transform: translateX(0%);
+}
+
+.formulaire-lpassword {
+    flex: 0.5;
+    position: relative;
+    margin-right: 10%;
+    margin-left: 5%;
+    height: 50px;
+    overflow: hidden;
+    margin-bottom: 5%;
+}
+
+.formulaire-lpassword input {
+    width: 100%;
+    height: 100%;
+    color: #595F6E;
+    padding-top: 20px;
+    border: none;
+    outline: none;
+}
+
+.formulaire-lpassword label {
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+}
+
+.formulaire-lpassword label::after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid #C36CBB;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.lpseudo-name {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
+}
+
+.formulaire-lpassword input:focus + .label-name .lpseudo-name, 
+.formulaire-lpassword input:valid + .label-name .lpseudo-name {
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: orange;
+}
+
+.formulaire-lpassword input:focus + .lpseudo-name::after, 
+.formulaire-lpassword input:valid + .lpseudo-name::after {
+    transform: translateX(0%);
+}
+
+
+input[type=submit] {
+    background-color: #FFB986;
+    color: white;
+    padding: 14px 20px;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 3%;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 50%;
+}
+
+.create-account {
+    color: #eeb161;
+}
+
+.connexion-login p {
+    margin-bottom: 10%;
+}
+
+.connexion-login h2 {
+    text-align: center;
+    margin-left: 2%;
+    font-size: 22px;
+    background-color: #eeb161;
+    font-weight: 100;
+}
+
+/* #endregion */
+
+/* #region [Register Page] */
+
+.register-container {
+    display: flex;
+    margin: auto;
+    min-height: 80vh;
+    align-items: center;
+    width:70%;
+    margin: auto;
+    margin-top: 3%;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.image-register {
+    flex: 1;
+}
+
+.inscription-register {
+    flex: 2;
+}
+
+.inscription-register h1 {
+    font-size: 32px;
+    font-weight: 500;
+    background: linear-gradient(to right, #494964, #6F6F89);
+    text-align: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.inscription-register p {
+    margin-top: 2%;
+    margin-bottom: 5%;
+    text-align: center;
+    font-size: 16px;
+    color: #585772;
+}
+
+.forms-top input[type=text], .forms-top input[type=password], .forms-top input[type=email], .forms-top input[type=tel], .forms-top input[type=date] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    margin-left: 8%;
+    align-items: center;
+    display: inline-flex;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.general-condition {
+    margin-top: 4%;
+    margin-left: 8%;
+}
+
+.create {
+    margin-top: 4%;
+}
+
+.forms-top a {
+    color: orange;
+}
+
+.void {
+    margin-top: 2%;
+}
+
+/* #endregion */
+
+/* #region [Appointment Page] */
+.header-appointment {
+    background: rgb(255, 255, 255); 
+}
+
+.quote {
+    text-align: center;
+    width: 50%;
+    margin: auto; 
+}
+
+.appointment {
+    display: flex;
+    margin: auto;
+    min-height: 26.6vh;
+    align-items: center;
+    width:100%;
+    margin: auto;
+    margin-top: 5%;
+    border: 1px solid #ffffff;
+    background: #ffffff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.intro-text-rdv {
+    margin-left: 20%;
+    margin-bottom: 1%;
+    text-transform: uppercase;
+    width: 38.5%;
+}
+
+
+.forms-rdv {
+    text-align: center;
+}
+
+input[type=date] {
+    margin-left: 1%;
+    width: 45%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type=time] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.btnkakyon {
+    background: orange;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    color: white;
+    margin: 0px 0px 0px 30px;
+    outline: none;
+}
+
+/* #endregion */
+
+/* #region [Contact Page] */
+
+
+form#contact{
+    margin: auto;
+    text-align: center;
+    width: 940px;
+    height: 470px;
+    background: rgb(68, 68, 68);
+    padding-top:20px;
+    border-radius: 15px
+}
+
+form#contact fieldset{
+    text-align: center;
+    border: none;
+}
+
+#contact h3{
+    width: 400px;
+    text-transform: uppercase;
+    margin: 0 auto 20px auto;
+    border-bottom: 1px solid ;
+    padding-bottom: 20px;
+}
+
+form{
+    margin: 60px 0 20px 0;
+}
+
+.name label{
+    font-size: 15px;
+    margin-right: 10px;
+    color:rgb(255, 255, 255);
+}
+
+fieldset input[type="text"], input[type="email"],input[type="tel"],textarea{
+    padding:5px;
+    font-size: 12px;
+    margin-right: 20px;
+    border: 2px solid #ddb;
+    border-radius: 3px;
+    margin-top:10px;
+}
+fieldset.name input[type="text"],input[type="email"],input[type="tel"]{
+    padding:5px;
+    width: 200px;
+    height: 40px;
+    font-size: 12px;
+    margin-right: 20px;
+    border: 2px solid #ddb;
+    border-radius: 3px;
+    margin-top:10px;
+}
+
+fieldset.name ul li {
+    list-style: none;
+}
+
+legend{
+    font-size: 20px;
+    color:rgb(255, 255, 255);
+}
+
+input#submit{
+    background: orange;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    color: white;
+    margin: auto;
+    outline: none;
+    border-radius: 50px;
+    text-decoration: none;
+    padding: 15px;
+}
+
+/* FOOTER */
+.copyright{
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+    padding-top:30px;
+    color:rgb(0, 0, 0);
+}
+
+.logo-container-footer img {
+    width: 5vh;
+}
+
+.logo-container-footer {
+    flex: 1;
+    text-align: center;
+    margin-top:10px;
+}
+
+/* #endregion */
+
+/* #region [Profil Page] */
+
+.main-image{
+    height: 550px;
+    background: url("../img/profil/profil.png") no-repeat center;
+    text-align: center;
+    color: white;
+}
+.main-image h1{
+    padding-top: 150px;
+    font-size: 50px;
+}
+.main-image p{
+    padding-top:20px;
+}
+.main-image a.profile{
+    background: orange;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    color: white;
+    margin: auto;
+    outline: none;
+    border-radius: 50px;
+    text-decoration: none;
+    padding: 15px;
+}
+
+.main-image a.profilachat {
+    background: white;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    color: orange;
+    margin: auto;
+    outline: none;
+    border-radius: 50px;
+    text-decoration: none;
+    padding: 15px;
+    margin-left: 20px;
+}
+
+.profil ul li{
+    display: inline-block;
+    padding: 20px;
+}
+.profil{
+    text-align: center;
+    margin-top:50px;
+}
+.profil h2{
+    border: 1px solid;
+    padding : 5px;
+}
+
+.copyright{
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+    padding-top:30px;
+    color:rgb(0, 0, 0);
+}
+.logo-container-footer img {
+    width: 5vh;
+}
+
+.logo-container-footer {
+    flex: 1;
+    text-align: center;
+}
+
+
+/* #endregion */
+
+/* #region Modif Profil*/
+
+input.maj{
+    background: orange;
+    width: 250px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    color: white;
+    margin: 50px 0px 0px 30px;
+    outline: none;
+}
+input.maj:hover{
+    background: rgb(255, 200, 98);
+    width: 250px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    color: white;
+    margin: 50px 0px 0px 30px;
+    outline: none;
+}
+.edition{
+    padding-top: 50px;
+    margin: auto;
+}
+.modif-top form input[type="text"], .modif-top input[type="email"], .modif-top input[type="password"]{
+    padding:5px;
+    font-size: 20px;
+    border: 2px solid #ddb;
+    border-radius: 3px;
+    margin: auto;
+}
+.modif-top{
+    padding: 15px;
+    margin:auto;
+}
+.modif-top label{
+    text-indent: 15px;
+}
+.modif-top input{
+    margin-right: 20px
+}
+.modif-bottom label{
+    margin-right:10px;
+}
+
+/* #endregion */
+
+/* #region [Produit Page] */
+.background {
+    background: #FFF5EE;
+}
+
+.conteneur-produit {
+    display: inline-block;
+    margin-top:2%;
+    margin-left: 3px; 
+    /* border: 2px solid;
+    border-radius: 15px;
+    background-color: white; */
+    width: 330px;
+    height: 380px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.conteneur-produit:hover {
+    transform: translateY(-5px);
+}
+
+.img-medium {
+    display: block;
+    margin: auto;
+}
+
+
+.module img {
+    max-width: 10em;
+    align-items: center;
+}
+
+.nom {
+    margin-top: 2%;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.prix {
+    margin-top: 6%;
+    text-align: center;
+}
+
+.desc {
+    margin-top: 6%;
+    text-align: center;
+}
+
+.conteneur-produit .Heyo {
+    background: red;
+}
+
+/* .buy {
+    border: 2px solid orange;
+    background: transparent;
+    color: orange;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    outline: none;
+    border-radius: 50px;
+    display: block;
+    margin: auto;
+    margin-top: 10%;
+} */
+
+.conteneur-produit li {
+    list-style-type: none;
+}
+
+.logiciel{
+    width : 1000px;
+    margin : 0 auto;
+}
+
+.Bureau{
+    width : 1000px;
+    margin : 0 auto;
+}
+
+.portable{
+    width : 1000px;
+    margin : 0 auto;
+}
+
+
+/* #endregion */
+
+/* #region [Admin Page] */
+
+.admin{
+    background: rgb(248, 248, 248);
+    padding:10px;
+    border-radius: 10px;
+}
+/* #endregion */
