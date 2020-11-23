@@ -77,6 +77,8 @@ base des produits déjà existants sur le marché. Vous gèrerez également les 
     ϟ Ajout d’une nouvelle table categorie afin de lister les produits par catégorie. (Léo)  
     
     ϟ Finition des pages contact / vitrine / profil. (Antoine)  
+    
+    ϟ Création du php de la page produit (Léo)
 
 ### Réunion du 07/10/2020 :
 
