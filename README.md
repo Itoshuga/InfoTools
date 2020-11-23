@@ -54,7 +54,6 @@ base des produits déjà existants sur le marché. Vous gèrerez également les 
 
 ### Réunion du 16/09/2020
 
-Nous avons réalisé depuis le début du projet le 02/09/2020 :  
     ϟ Réalisation du Devis et du diagramme de GANTT **(Jérémy)**  
     ϟ Mise en place de la base de données. **(Léo)**  
     ϟ Début de la création du site vitrine avec la présentation de l’entreprise. **(Lucas)**  
@@ -63,13 +62,13 @@ Nous avons réalisé depuis le début du projet le 02/09/2020 :
   
 ### Réunion du 30/09/2020:
 
-Aujourd’hui nous avons réalisé :  
     ϟ Continuité du design du site. **(Lucas)**  
     ϟ Ajout de nouveaux produits. **(Jérémy)**  
     ϟ Ajout d’une nouvelle table categorie afin de lister les produits par catégorie. **(Léo)**  
     ϟ Finition des pages contact / vitrine / profil. **(Antoine)**  
 
-### Réunion du 07/10/2020:
+### Réunion du 07/10/2020 :
+
     ϟ Création du css de la page produit **(Lucas)**  
     ϟ Amélioration du php de la page Contact **(Antoine)**  
     ϟ Création de la page achats **(Antoine)**  
