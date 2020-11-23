@@ -5,6 +5,7 @@ Par Lucas, Antoine, Léo & Jérémy
 ### Table des Matières
 
 > [Contexte](#Contexte)  
+> [Progression](#Progression)  
 
 ### Contexte
 La société Info-Tools développe et vend différents logiciels. Elle propose aussi le dimensionnement 
@@ -13,6 +14,35 @@ C’est dans son activité de démarchage de nouveaux clients que ce projet vien
 
 ### Progression
 
-|   Partie I   |    Partie II   |   Partie III   |
+|  Mission I   |   Mission II   |  Mission III   |
 | ------------ | -------------- | -------------- |
-|  En Cours ⌛ |   En Cours ⌛  |   En Cours ⌛  |
+|  En Cours ⌛ |   En Cours ⌛  |   Terminée ✅  |
+
+
+## Mission I
+
+### Application CRM lourde (préconisation : C# / MySQL)
+
+o Création d’une application lourde type C# de CRM avec son contenu stocké dans une base de données. Vous
+devez gérer les prospects, les clients et les contacts/rendez-vous et vous inspirerez des fonctionnalités de
+base des produits déjà existants sur le marché. Vous gèrerez également les produits ainsi que leurs facturations.
+o Authentification à l’application via les comptes de l’AD.
+o Réalisation de pages web pour le portail CRM contenant des graphiques (indicateurs) pouvant être exportés
+au format pdf.
+
+## Mission II
+
+### Application CRM Web (préconisation : PHP Laravel)
+
+o Mise en place du portail CRM (Avec écran d’accueil personnalisé sur les rendez-vous à venir)
+o Récupération des données de l’Active Directory via PHP pour s’authentifier à l’application de CRM web (accès seulement aux commerciaux).
+o Une page présentant les produits.
+o Une page permettant de récapituler les achats d’un client.
+
+## Mission III
+
+### Création du site internet vitrine (HTML / CSS / JS)
+
+o Présentation de l’entreprise
+o Présentation de ses produits principaux (accès à la base de données)
+o Possibilité à un client de demander un rendez-vous. C’est ensuite le responsable qui assigne un client à un commercial.
