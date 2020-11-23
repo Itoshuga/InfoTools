@@ -6,7 +6,7 @@ Par Lucas, Antoine, Léo & Jérémy
 
 > [Contexte](#Contexte)  
 > [Progression](#Progression)  
-> [Mission](#Mission)  
+> [Missions](#Missions)  
 
 ### Contexte
 La société Info-Tools développe et vend différents logiciels. Elle propose aussi le dimensionnement 
