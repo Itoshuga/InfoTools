@@ -55,13 +55,17 @@ base des produits déjà existants sur le marché. Vous gèrerez également les 
 ### Réunion du 16/09/2020
 
     ϟ Réalisation du Devis et du diagramme de GANTT (Jérémy)  
+    
     ϟ Mise en place de la base de données. (Léo)  
+    
     ϟ Début de la création du site vitrine avec la présentation de l’entreprise. (Lucas)  
+    
     ϟ Création des pages : 
         → Inscription/Connexion (Antoine)  
         → Profil (Antoine),  
         → Rendez-vous (Léo et Lucas)  
         → Produit (Lucas et Antoine).  
+        
     ϟ Début du design du site. (Lucas et Antoine)  
   
 ### Réunion du 30/09/2020:
