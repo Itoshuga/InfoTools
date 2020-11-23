@@ -71,30 +71,44 @@ base des produits déjà existants sur le marché. Vous gèrerez également les 
 ### Réunion du 30/09/2020:
 
     ϟ Continuité du design du site. (Lucas)  
+    
     ϟ Ajout de nouveaux produits. (Jérémy)  
+    
     ϟ Ajout d’une nouvelle table categorie afin de lister les produits par catégorie. (Léo)  
+    
     ϟ Finition des pages contact / vitrine / profil. (Antoine)  
 
 ### Réunion du 07/10/2020 :
 
     ϟ Création du css de la page produit (Lucas)  
+    
     ϟ Amélioration du php de la page Contact (Antoine)  
+    
     ϟ Création de la page achats (Antoine)  
+    
     ϟ Création page récapitulative Achat (Léo)  
+    
     ϟ Début de l’interface de l’application C# (Jérémy)
 
 
 ### Réunion du 14/10/2020:
     ϟ Création de la charte de conditions générales d’utilisation. (Jérémy)  
+    
     ϟ Début de la partie Administrateur qui permet de gérer des ajouts/suppression/modification d’un produit. (Antoine et Léo)  
+    
     ϟ Modifier les boutons Connexion/Inscription pour qu’ils soient dans un menu (JavaScript) dans la barre de navigation. (Antoine)  
+    
     ϟ Modifier background rendez-vous + Continué page d’accueil. (Lucas)  
 
 
 ### Réunion du 18/11/2020:
 
     ϟ Amélioration du code (Léo)  
-    ϟ Mise en place du responsive (Lucas et Antoine)
+    
+    ϟ Mise en place du responsive (Lucas et Antoine)  
+    
     ϟ Finalisation des boutons Connexion/Inscription pour qu’ils soient dans un menu (JavaScript) dans la barre de navigation. (Antoine)  
+    
     ϟ Finalisation de la partie Administrateur(Léo)  
+    
     ϟ Début de la partie C# (Lucas)  
