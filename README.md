@@ -1,4 +1,4 @@
-## InfoTools
+## 𝗜𝗻𝗳𝗼𝗧𝗼𝗼𝗹𝘀
 
 Par Lucas, Antoine, Léo & Jérémy
 
