@@ -55,17 +55,17 @@ base des produits déjà existants sur le marché. Vous gèrerez également les 
 ### Réunion du 16/09/2020
 
 Nous avons réalisé depuis le début du projet le 02/09/2020 :	
-  ϟ Réalisation du Devis et du diagramme de GANTT **(Jérémy)**  
-  ϟ Mise en place de la base de données. **(Léo)**  
-  ϟ Début de la création du site vitrine avec la présentation de l’entreprise. **(Lucas)**  
-  ϟ Création des pages Inscription/Connexion **(Antoine)**, profil **(Antoine)**, rendez-vous **(Léo et Lucas)** et produit **(Lucas et Antoine)**.  
-  ϟ Début du design du site. **(Lucas et Antoine)**  
+    ϟ Réalisation du Devis et du diagramme de GANTT **(Jérémy)**  
+    ϟ Mise en place de la base de données. **(Léo)**  
+    ϟ Début de la création du site vitrine avec la présentation de l’entreprise. **(Lucas)**  
+    ϟ Création des pages Inscription/Connexion **(Antoine)**, profil **(Antoine)**, rendez-vous **(Léo et Lucas)** et produit **(Lucas et Antoine)**.  
+    ϟ Début du design du site. **(Lucas et Antoine)**  
   
 ### Réunion du 30/09/2020:
 
 Aujourd’hui nous avons réalisé :  
-  ϟ Continuité du design du site. **(Lucas)**  
-  ϟ Ajout de nouveaux produits. **(Jérémy)**  
-  ϟ Ajout d’une nouvelle table categorie afin de lister les produits par catégorie. **(Léo)**  
-  ϟ Finition des pages contact / vitrine / profil. **(Antoine)**  
+    ϟ Continuité du design du site. **(Lucas)**  
+    ϟ Ajout de nouveaux produits. **(Jérémy)**  
+    ϟ Ajout d’une nouvelle table categorie afin de lister les produits par catégorie. **(Léo)**  
+    ϟ Finition des pages contact / vitrine / profil. **(Antoine)**  
 
