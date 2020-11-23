@@ -23,26 +23,25 @@ C’est dans son activité de démarchage de nouveaux clients que ce projet vien
 
 ### Application CRM lourde (préconisation : C# / MySQL)
 
-o Création d’une application lourde type C# de CRM avec son contenu stocké dans une base de données. Vous
+→ Création d’une application lourde type C# de CRM avec son contenu stocké dans une base de données. Vous
 devez gérer les prospects, les clients et les contacts/rendez-vous et vous inspirerez des fonctionnalités de
-base des produits déjà existants sur le marché. Vous gèrerez également les produits ainsi que leurs facturations.
-o Authentification à l’application via les comptes de l’AD.
-o Réalisation de pages web pour le portail CRM contenant des graphiques (indicateurs) pouvant être exportés
-au format pdf.
+base des produits déjà existants sur le marché. Vous gèrerez également les produits ainsi que leurs facturations.  
+→ Authentification à l’application via les comptes de l’AD.  
+→ Réalisation de pages web pour le portail CRM contenant des graphiques (indicateurs) pouvant être exportés au format pdf.
 
 ## Mission II
 
 ### Application CRM Web (préconisation : PHP Laravel)
 
-o Mise en place du portail CRM (Avec écran d’accueil personnalisé sur les rendez-vous à venir)
-o Récupération des données de l’Active Directory via PHP pour s’authentifier à l’application de CRM web (accès seulement aux commerciaux).
-o Une page présentant les produits.
-o Une page permettant de récapituler les achats d’un client.
+→ Mise en place du portail CRM (Avec écran d’accueil personnalisé sur les rendez-vous à venir)  
+→ Récupération des données de l’Active Directory via PHP pour s’authentifier à l’application de CRM web (accès seulement aux commerciaux).  
+→ Une page présentant les produits.  
+→ Une page permettant de récapituler les achats d’un client.  
 
 ## Mission III
 
 ### Création du site internet vitrine (HTML / CSS / JS)
 
-o Présentation de l’entreprise
-o Présentation de ses produits principaux (accès à la base de données)
-o Possibilité à un client de demander un rendez-vous. C’est ensuite le responsable qui assigne un client à un commercial.
+→ Présentation de l’entreprise  
+→ Présentation de ses produits principaux (accès à la base de données)  
+→ Possibilité à un client de demander un rendez-vous. C’est ensuite le responsable qui assigne un client à un commercial.  
