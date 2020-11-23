@@ -107,7 +107,7 @@ base des produits déjà existants sur le marché. Vous gèrerez également les 
     
     ϟ Mise en place du responsive (Lucas et Antoine)  
     
-    ϟ Finalisation des boutons Connexion/Inscription pour qu’ils soient dans un menu (JavaScript) dans la barre de navigation. (Antoine)  
+    ϟ Finalisation des boutons Connexion/Inscription dans un menu (JavaScript) dans la barre de navigation. (Antoine)  
     
     ϟ Finalisation de la partie Administrateur(Léo)  
     
