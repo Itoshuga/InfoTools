@@ -1,7 +1,7 @@
 ## 𝗜𝗻𝗳𝗼𝗧𝗼𝗼𝗹𝘀
 
 ![Discord](https://img.shields.io/discord/102860784329052160?style=for-the-badge)
-![Chat](https://img.shields.io/discord/102860784329052160?style=for-the-badge)
+![Chat](https://img.shields.io/discord/102860784329012160?style=for-the-badge)
 [![GitHub followers](https://img.shields.io/github/followers/Itoshuga?style=for-the-badge)](https://github.com/Itoshuga)
 
 Par Lucas, Antoine, Léo & Jérémy
