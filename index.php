@@ -37,27 +37,26 @@ session_start();
                 <nav class="navbar">
                     <?php 
                         //Connexion/Inscription 
-                        include 'php/database.php';//Inclusion de la bdd
+                        include 'php/database.php';//Liaision avec la bdd
                         global $db;
         
                         if(isset($_SESSION['Pseudo']) and $_SESSION['Mdp']){ //Si la Session pseudo et mdp n'est pas nul alors CONNEXION            
                                 echo'<ul class="nav-btn">';
                                     echo'<h1>Mon Compte</h1><br><br>';
                                     echo'<li><a class="menu-btn" href="php/profil.php?id='.$_SESSION['IdUti'].'"><button class="disconnect">Mon Profil</button></a></li>';
-                                    if (isset($_SESSION['Pseudo']) and $_SESSION['Mdp'] and $_SESSION['NumRole'] == 2) {
+                                    if (isset($_SESSION['Pseudo']) and $_SESSION['Mdp'] and $_SESSION['NumRole'] == 2) {//Si la session NumRole = 2, alors connexion admin
                                             echo'<li><a class="menu-btn" href="php/admin/index.php"><button class="disconnect">Admin</button></a></li>';
                                     }
-                                    // echo'<a href="php/signup.php"><button class="signup" href="">S\'Inscrire</button></a>
                                     echo'<li><a class="menu-btn" href="php/logout.php"><button class="disconnect">Se Déconnecter</button></a></li>';
-                                    echo'</ul>';
-                            }
-                            else{//Sinon PAS CONNEXION
-                                echo'<ul class="nav-btn">';
-                                    echo'<h1>Mon Compte</h1><br><br>';
-                                    echo'<li><a class="menu-btn" href="php/login.php"><button class="disconnect">Se Connecter</button></a></li>';
-                                    echo'<li><a class="menu-btn" href="php/signup.php"><button class="disconnect" href="">S\'Inscrire</button></a></li>';
-                                    echo'</ul>';
-                            }
+                                echo'</ul>';
+                        }
+                        else{//Sinon PAS CONNEXION
+                            echo'<ul class="nav-btn">';
+                                echo'<h1>Mon Compte</h1><br><br>';
+                                echo'<li><a class="menu-btn" href="php/login.php"><button class="disconnect">Se Connecter</button></a></li>';
+                                echo'<li><a class="menu-btn" href="php/signup.php"><button class="disconnect" href="">S\'Inscrire</button></a></li>';
+                            echo'</ul>';
+                        }
 
                             
                     ?>
@@ -79,7 +78,7 @@ session_start();
                     </div>
                 </div>
                 <div class="image">
-                    <img id='image' width="500" height="500"/>
+                    <img id='image'/>
                 </div>
             </section>
             <div class="void">
@@ -88,15 +87,14 @@ session_start();
         </main>
         </div>
 
-            <!-- Partie Produit -->
-
+        <!-- Partie Produit -->
         <div id="produit" class="categories-produit">
             <div class="small-container">
                 <h2 class="title">Nos Produits</h2>
                 <p class="pp">Bien que nous sommes avant tout un centre de developpement de logiciels, nous ne nous arrêtons pas là.  Même si le prix n'est pas toujours une question de grandeur mais plutôt une question de cohérence. Info-Tools met à profits toute ses ressources afin de vous faire profiter du meilleurs au plus bas prix possible.</p>
                 <div class="row">
                     <div class="col-3">
-                        <?php
+                        <?php // 3 requêtes pour afficher 2 produits de la base de données
                             $req = $db->query('SELECT Imgsrc,NomProd,DescProd,PrixProd FROM produit WHERE IdProd=7');
                             while($donnees = $req->fetch()){
                                 echo '<img src="img/product/' .$donnees['Imgsrc']. '" alt="' .$donnees['NomProd']. '"/>';
@@ -131,7 +129,7 @@ session_start();
                 </div>
             </div>
         </div>
-        <div class="header-appointment ">
+        <div id="rendezvous"class="header-appointment ">
         <main>
             <h2 class="title">Prendre un Rendez-Vous</h2>
             <div class="row">
@@ -152,7 +150,7 @@ session_start();
                 <div class="appointment">
                     <h2 class="intro-text-rdv">Prenez un rendez-vous pour une consultation physique ou digitale avec un de nos commerciaux.</h2>
                     <?php
-                    if (isset($_SESSION['Pseudo']) and $_SESSION['Mdp']) {
+                    if (isset($_SESSION['Pseudo']) and $_SESSION['Mdp']) { //Si on est connecté, alors on peut prendre RDV
                         $IdUti = $_SESSION['IdUti'];
                         ?>
                     <form class="forms-rdv" method="post">
@@ -161,7 +159,7 @@ session_start();
                         </div>
                     </form>
                     <?php
-                    if(isset($_POST['submit'])) {
+                    if(isset($_POST['submit'])) { // Extraction du formulaire avec la méthod $_POST
                         extract($_POST);
 
                         if (!empty($DteRDV) && !empty($HeureRDV)) {
@@ -173,7 +171,7 @@ session_start();
                             $c->execute(['DteRDV' => $DteRDV]);
                             $result = $c->rowCount();
 
-                            if ($result==0) {
+                            if ($result==0) {//Execution de la requête
                                 $requete = $db->prepare("INSERT INTO rdv (IdUti, DteRDV, HeureRDV) VALUES ('$IdUti','$DteRDV','$HeureRDV')");
                                 $requete->execute([
                                     'IdUti' => $IdUti,
@@ -182,12 +180,12 @@ session_start();
                                     ]);
                                     echo "Rendez vous prévu le $DteRDV à $HeureRDV";
                                 }
-                            } else {
+                            } else {//errreur lors de l'éxécution de la requête
                                 echo "Veuillez remplir les données.";
                             }
                         }
-                    } else {
-                        echo '<a href="login.php"><button class="signup" style="margin-left: 100%;">Se connecter</button></a>';
+                    } else {// Si pas connecter pour prendre un RDV -> Affiche Btn "Se connecter"
+                        echo '<a href="php/login.php"><button class="btn-product" style="margin-left: 100%;">Se connecter</button></a>';
                     }
                     ?>
                 </div>
