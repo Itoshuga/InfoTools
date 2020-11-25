@@ -25,6 +25,10 @@
                 <img src="../../img/logo/algorithm.svg" alt="logo" />
                 <h4 class="logo"><span class="color-info">Info</span>-<b>Tools</b></h4>
             </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a class="link" href="../../index.php">Accueil</a></li>
+                </ul>
         </header>
         
         <div class="container admin">
@@ -67,7 +71,7 @@
                 </tbody>
             </table>
             <div class="row">
-                <h1><strong>Liste des utilisateurs </strong><a href="insertuti.php" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Ajouter</a></h1>
+                <h1><strong>Liste des utilisateurs </strong><a href="Utilisateurs/insert.php" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Ajouter</a></h1>
             </div>
             <!-- Tableau Affiche tout les produits -->
             <table class="table table-stripped table-bordered">
@@ -101,9 +105,9 @@
                         echo '<td>'. $utilisateur['Ville'] . '</td>';
                         echo '<td>'. $utilisateur['Pseudo'] . '</td>';
                         echo '<td width=300>';
-                        echo '<a class="btn btn-primary" href="update.php?id='.$utilisateur['IdUti'].'"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>';
+                        echo '<a class="btn btn-primary" href="Utilisateurs/update.php?id='.$utilisateur['IdUti'].'"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>';
                         echo ' ';
-                        echo '<a class="btn btn-danger" href="delete.php?id='.$utilisateur['IdUti'].'"><span class="glyphicon glyphicon-remove"></span> Supprimer</a>';
+                        echo '<a class="btn btn-danger" href="Utilisateurs/delete.php?id='.$utilisateur['IdUti'].'"><span class="glyphicon glyphicon-remove"></span> Supprimer</a>';
                         echo '</td>';
                         echo '</tr>';
                     }
