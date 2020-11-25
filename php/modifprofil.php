@@ -152,6 +152,6 @@ if(isset($_SESSION['IdUti']))
 }
 else
 {
-    header("Location: Connexion.php");
+    header("Location: Connexion.php");//redirection automatique
 }
 ?>

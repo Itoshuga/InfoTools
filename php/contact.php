@@ -40,7 +40,6 @@ session_start();
                                     if (isset($_SESSION['Pseudo']) and $_SESSION['Mdp'] and $_SESSION['NumRole'] == 2) {
                                             echo'<li><a class="menu-btn" href="php/admin/index.php"><button class="disconnect">Admin</button></a></li>';
                                     }
-                                    // echo'<a href="php/signup.php"><button class="signup" href="">S\'Inscrire</button></a>
                                     echo'<li><a class="menu-btn" href="php/logout.php"><button class="disconnect">Se Déconnecter</button></a></li>';
                                     echo'</ul>';
                             }
@@ -81,7 +80,7 @@ session_start();
                 //BDD
                 include 'database.php';
                 global $db;
-                // Extraction du formulaire d'inscription avce la méthode $_POST
+                // Extraction du formulaire d'inscription avec la méthode $_POST
                 if(isset($_POST['submit']))
                 {
         

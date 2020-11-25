@@ -76,7 +76,7 @@
                                                 echo '<span> ' . $donnees['NomProd'] . ' </span>';
                                             echo '</div>'; 
                                             echo '<div class="prix">';
-                                                echo '<span> ' . $donnees['PrixProd'] . ' </span>';
+                                                echo '<span> ' . $donnees['PrixProd'] . ' € </span>';
                                             echo '</div>';
                                             echo '<div class="desc">';
                                                 echo '<span> ' . $donnees['DescProd'] . ' </span>';
@@ -105,7 +105,7 @@
                                                 echo '<span> ' . $donnees['NomProd'] . ' </span>';
                                             echo '</div>'; 
                                             echo '<div class="prix">';
-                                                echo '<span> ' . $donnees['PrixProd'] . ' </span>';
+                                                echo '<span> ' . $donnees['PrixProd'] . ' € </span>';
                                             echo '</div>';
                                             echo '<div class="desc">';
                                                 echo '<span> ' . $donnees['DescProd'] . ' </span>';

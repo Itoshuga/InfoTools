@@ -1,4 +1,4 @@
-<!-- Connexion à la base de donnée localhost-->
+<!-- Connexion à la base de données localhost-->
 <?php
 $host = "localhost"; 
 $user = "root";    //   root par exemple 
