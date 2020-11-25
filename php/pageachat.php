@@ -63,8 +63,8 @@ session_start();
             $req = $db->query("SELECT Imgsrc, NomProd, PrixProd, Quantite FROM facturation f INNER JOIN produit p ON f.IdProd = p.IdProd WHERE IdUti = $IdUti GROUP BY Imgsrc, NomProd");
             while($donnees = $req->fetch()){
                 echo('<img src="../img/product/'.$donnees['Imgsrc'].'"/></br>' . $donnees['NomProd'] . '</br></br>' . 'Prix : ' . $donnees['PrixProd'] . '</br></br>' . 'Quantité : ' . $donnees['Quantite'] . '</br></br>' . '<br><hr></article>');
-            $donnees['PrixProd'] = $donnees['PrixProd'] * $donnees['Quantite'];
-            $PrixTotal += $donnees['PrixProd'];
+                $donnees['PrixProd'] = $donnees['PrixProd'] * $donnees['Quantite'];
+                $PrixTotal += $donnees['PrixProd'];
             }        
             echo 'Le prix total est de '.$PrixTotal.' €';
         ?>

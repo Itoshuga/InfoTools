@@ -76,7 +76,7 @@
                         <input class="inscription" type="password" id="password" name="passwords" minlength="8" required placeholder="Votre mot de passe (8 caractères min)">
                         <input class="inscription" type="password" id="cpassword" name="cpassword" minlength="8" required placeholder="Comfirmer votre mot de passe (8 caractères min)">
                         <br />
-                        <input type='checkbox' name='case' class="general-condition" value='on' required> J'ai lu et j'accepte <a href="../img/charte.pdf">les conditions générales d'utilisation</a>  
+                        <input type='checkbox' name='case' class="general-condition" value='on' required> J'ai lu et j'accepte <a target="_blank" href="../img/charte.pdf">les conditions générales d'utilisation</a>  
                         
                         <input class="create" name="submit" type="submit" value="Créer votre compte">
                         

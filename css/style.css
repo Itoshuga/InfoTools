@@ -26,9 +26,10 @@ header {
 
 .header {
     background: linear-gradient(100deg, white 50%, #f38237 50%);
+    width: 100%;
 }
 .menu-btn{
-    font-size: 23px;
+    font-size: 30px;
     cursor: pointer;
     display: block;
     z-index: 999;
@@ -64,6 +65,9 @@ header {
     font-weight: 500px;
 }
 
+.nav-links a{
+    font-size: 20px;
+}
 .nav-links a:hover {
     color: orange;
     transition: all 0.5s ease;
@@ -106,6 +110,7 @@ nav {
     justify-content: space-around;
 
 }
+
 
 a.first {
     color: orange;
@@ -190,14 +195,16 @@ a.first {
 }
 
 .image {
-    flex: 1;
+    flex:1;
+
 }
 
 .image img {
     border: solid 2px #FFFFFF;
     border-radius: 50%;
-    margin-left: 30%;
-    width: 60%;
+    margin-left:15em;
+    width: 500px; 
+    height: 500px;
 }
 
 .bg-noir {
@@ -580,7 +587,6 @@ input[type=submit] {
     width: 50%;
     margin: auto; 
 }
-
 .appointment {
     display: flex;
     margin: auto;
@@ -955,5 +961,34 @@ input.maj:hover{
     background: rgb(248, 248, 248);
     padding:10px;
     border-radius: 10px;
+}
+/* #endregion */
+
+/* #region [RESPONSIVE] */
+@media screen and (max-width: 1176px){
+    .image img{
+        width: 100px;
+        height: 100px;
+        margin-left: 25em;
+    }
+}
+@media screen and (max-width: 1208px){
+    .image img{
+        width: 300px;
+        height: 300px;
+        margin-left: 25em;
+    }
+}
+@media screen and (max-width: 1360px){
+    .image img{
+        width: 400px;
+        height: 400px;
+    }
+}
+@media screen and (max-width: 1426px){
+    .image img{
+        width: 480px;
+        height: 480px;
+    }
 }
 /* #endregion */
