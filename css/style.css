@@ -964,6 +964,69 @@ input.maj:hover{
 }
 /* #endregion */
 
+/* #region [Achat Page] */
+.header-achat .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 15% 25px 37% 25px ;
+}
+
+.header-achat .small-container {
+    max-width: 1080px;
+    margin: auto;
+}
+
+.header-achat .col-3 {
+    margin-right: 30px;
+}
+
+.header-achat {
+    background: #FFF5EE;
+}
+
+.header-achat .col-3 {
+    flex-basis: 25%;
+    min-width: 250px;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 40px 20px;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5S;
+}
+
+.header-achat .col-3 img{
+    width: 150px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+.header-achat .col-3 .achat-produit {
+    font-size: 16px;
+}
+
+.header-achat .col-3:hover {
+    transform: translateY(-10px);
+}
+
+.fourth-title {
+    font-size: 40px;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    text-align: center;
+    margin: 40px 0 0 0;
+    text-transform: uppercase;
+}
+
+.result {
+    font-weight: 200;
+}
+/* #endregion */
+
 /* #region [RESPONSIVE] */
 @media screen and (max-width: 1176px){
     .image img{
