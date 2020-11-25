@@ -32,7 +32,7 @@ session_start();
                     <li><a class="link" href="index.php">Accueil</a></li>
                     <li><a class="link" href="#produit">Produits</a></li>
                     <li><a class="link" href="#rendezvous">Rendez-Vous</a></li>
-                    <li><a class="link" href="php/contact.php">Contact</a></li>
+                    <!-- <li><a class="link" href="php/contact.php">Contact</a></li> -->
                 </ul>
                 <nav class="navbar">
                     <?php 
