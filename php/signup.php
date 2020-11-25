@@ -9,7 +9,7 @@
     <body>
     <header> 
 
-            <!-- Logo + Text -->
+            <!-- Logo + dccvvc Text -->
             <div class="logo-container">
                 <img src="../img/logo/algorithm.svg" alt="logo" />
                 <h4 class="logo"><span class="color-info">Info</span>-<b>Tools</b></h4>
