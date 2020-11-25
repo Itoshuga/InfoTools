@@ -7,12 +7,12 @@
         $id = checkInput($_GET['id']);
     }
 
-    $roleError = $nameError = $prenomError = $mailError = $telError = $adresseError = $cpError = $villeError = $pseudoError = $role = $name = $prenom = $mail = $tel = $adresse = $cp = $ville = $pseudo = "";
+   $nameError = $prenomError = $mailError = $telError = $adresseError = $cpError = $villeError = $pseudoError = $role = $name = $prenom = $mail = $tel = $adresse = $cp = $ville = $pseudo = "";
 
     if(!empty($_POST)) 
     {
         //Création des variables d'un produit
-        $role               = checkInput($_POST['role']);
+        // $role               = checkInput($_POST['role']);
         $name               = checkInput($_POST['name']);
         $prenom             = checkInput($_POST['prenom']);
         $mail               = checkInput($_POST['mail']);
@@ -23,11 +23,11 @@
         $pseudo             = checkInput($_POST['pseudo']);
         $isSuccess          = true;
        
-         if(empty($role)) //Si la variable role est vide alors:
-        {
-            $roleError = 'Ce champ ne peut pas être vide';//Message d'erreur
-            $isSuccess = false;
-        }
+        //  if(empty($role)) //Si la variable role est vide alors:
+        // {
+        //     $roleError = 'Ce champ ne peut pas être vide';//Message d'erreur
+        //     $isSuccess = false;
+        // }
         if(empty($name)) //Si la variable nomP est vide alors:
         {
             $nameError = 'Ce champ ne peut pas être vide';//Message d'erreur
@@ -75,34 +75,29 @@
             $db = Database::connect();
             if($isSuccess)
             {
-                $statement = $db->prepare("UPDATE produit  set NomProd = ?, DescProd = ?, PrixProd = ?, NumCat = ? WHERE IdProd = ?");
-                $statement->execute(array($name,$description,$price,$category,$id));
+                $statement = $db->prepare("UPDATE utilisateur  set Nom = ?, Prenom = ?, Mail = ?, Tel = ?, Adresse = ?, CP = ?, Ville = ?, Pseudo = ? WHERE IdUti = ?");
+                $statement->execute(array($name,$prenom,$mail,$tel,$adresse,$cp,$ville,$pseudo,$id));
             }
             Database::disconnect();
-            header("Location: index.php");
+            header("Location: ../index.php");
         }
-        else if($isImageUpdated && !$isUploadSuccess)
-        {
-            $db = Database::connect();
-            $statement = $db->prepare("SELECT * FROM produit where IdProd = ?");
-            $statement->execute(array($id));
-            $item = $statement->fetch();
-            $image          = $item['Imgsrc'];
-            Database::disconnect();
            
-        }
     }
     else 
     {
         $db = Database::connect();
-        $statement = $db->prepare("SELECT * FROM produit where IdProd = ?");
+        $statement = $db->prepare("SELECT * FROM utilisateur where IdUti = ?");
         $statement->execute(array($id));
         $item = $statement->fetch();
-        $name           = $item['NomProd'];
-        $description    = $item['DescProd'];
-        $price          = $item['PrixProd'];
-        $category       = $item['NumCat'];
-        $image          = $item['Imgsrc'];
+        $name           = $item['Nom'];
+        $prenom    = $item['Prenom'];
+        $mail          = $item['Mail'];
+        $tel          = $item['Tel'];
+        $adresse       = $item['Adresse'];
+        $cp       = $item['CP'];
+        $ville       = $item['Ville'];
+        $pseudo       = $item['Pseudo'];
+
         Database::disconnect();
     }
 
@@ -168,9 +163,16 @@
 
                         <div class="form-group">
                         <label for="tel">Téléphone :</label>
-                            <input type="email" class="form-control" id="tel" name="tel" placeholder="Téléphone" value="<?php echo $tel;?>">
+                            <input type="tel" class="form-control" id="tel" name="tel" placeholder="Téléphone" value="<?php echo $tel;?>">
                             <span class="help-inline"><?php echo $telError;?></span>
                         </div>
+
+                        <div class="form-group">
+                        <label for="adresse">Adresse :</label>
+                            <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse" value="<?php echo $adresse;?>">
+                            <span class="help-inline"><?php echo $adresseError;?></span>
+                        </div>
+                        
                         <div class="form-group">
                         <label for="ville">Ville :</label>
                             <input type="text" class="form-control" id="ville" name="ville" placeholder="Ville" value="<?php echo $ville;?>">
@@ -182,26 +184,16 @@
                             <span class="help-inline"><?php echo $cpError;?></span>
                         </div>
                         <div class="form-group">
-                        <label for="ville">Ville :</label>
-                            <input type="text" class="form-control" id="ville" name="ville" placeholder="Ville" value="<?php echo $ville;?>">
-                            <span class="help-inline"><?php echo $villeError;?></span>
+                        <label for="pseudo">Pseudo :</label>
+                            <input type="text" class="form-control" id="pseudo" name="pseudo" placeholder="Pseudo" value="<?php echo $pseudo;?>">
+                            <span class="help-inline"><?php echo $pseudoError;?></span>
                         </div>
                         <br>
                         <div class="form-actions">
                             <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span> Modifier</button>
-                            <a class="btn btn-primary" href="index.php"><span class="glyphicon glyphicon-arrow-left"></span> Retour</a>
+                            <a class="btn btn-primary" href="../index.php"><span class="glyphicon glyphicon-arrow-left"></span> Retour</a>
                        </div>
                     </form>
-                </div>
-                <div class="col-sm-6 site">
-                    <div class="thumbnail">
-                        <img src="<?php echo '../../img/product/'.$image;?>" alt="...">
-                        <div class="price"><?php echo number_format((float)$price, 2, '.', ''). ' €';?></div>
-                          <div class="caption">
-                            <h4><?php echo $name;?></h4>
-                            <p><?php echo $description;?></p>
-                          </div>
-                    </div>
                 </div>
             </div>
         </div>   
