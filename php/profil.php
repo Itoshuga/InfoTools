@@ -29,10 +29,10 @@ session_start();
                 </ul>
                 <nav class="navbar">
                     <?php 
-                        //Connexion/Inscription 
-                        include 'php/database.php';//Inclusion de la bdd
-                        global $db;
         
+                        include 'database.php';//BDD
+                        global $db;
+
                         if(isset($_SESSION['Pseudo']) and $_SESSION['Mdp']){ //Si la Session pseudo et mdp n'est pas nul alors CONNEXION            
                                 echo'<ul class="nav-btn">';
                                     echo'<h1>Mon Compte</h1><br><br>';
@@ -58,8 +58,6 @@ session_start();
             </nav>
         </header>
         <?php
-            include 'database.php';//BDD
-            global $db;
 
             if(isset($_GET['id']) AND $_GET['id'] > 0)
             {

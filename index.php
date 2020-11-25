@@ -129,6 +129,11 @@ session_start();
                 </div>
             </div>
         </div>
+        <?php 
+            if (isset($_SESSION['Pseudo']) and $_SESSION['Mdp'] and $_SESSION['NumRole'] == 1) {//Si la session NumRole = 2, alors connexion admin
+                echo "text";
+        } else {
+        ?>
         <div id="rendezvous"class="header-appointment ">
         <main>
             <h2 class="title">Prendre un Rendez-Vous</h2>
@@ -149,49 +154,12 @@ session_start();
             <section class="rdv-header">
                 <div class="appointment">
                     <h2 class="intro-text-rdv">Prenez un rendez-vous pour une consultation physique ou digitale avec un de nos commerciaux.</h2>
-                    <?php
-                    if (isset($_SESSION['Pseudo']) and $_SESSION['Mdp']) { //Si on est connecté, alors on peut prendre RDV
-                        $IdUti = $_SESSION['IdUti'];
-                        ?>
-                    <form class="forms-rdv" method="post">
-                        <div class"rdv">
-                            <input type="date" id="DteRDV" name="DteRDV"><input type="time" id="HeureRDV" name="HeureRDV"><button class="btnkakyon" name ="submit" id="submit" type="submit">Envoyer</button>
-                        </div>
-                    </form>
-                    <?php
-                    if(isset($_POST['submit'])) { // Extraction du formulaire avec la méthod $_POST
-                        extract($_POST);
-
-                        if (!empty($DteRDV) && !empty($HeureRDV)) {
-                            include 'database.php';
-                            global $db;
-                
-                            //Prépartion de la requête 
-                            $c = $db->prepare("SELECT DteRDV FROM rdv WHERE DteRDV = $DteRDV");
-                            $c->execute(['DteRDV' => $DteRDV]);
-                            $result = $c->rowCount();
-
-                            if ($result==0) {//Execution de la requête
-                                $requete = $db->prepare("INSERT INTO rdv (IdUti, DteRDV, HeureRDV) VALUES ('$IdUti','$DteRDV','$HeureRDV')");
-                                $requete->execute([
-                                    'IdUti' => $IdUti,
-                                    'DteRDV' => $DteRDV,
-                                    'HeureRDV' => $HeureRDV
-                                    ]);
-                                    echo "Rendez vous prévu le $DteRDV à $HeureRDV";
-                                }
-                            } else {//errreur lors de l'éxécution de la requête
-                                echo "Veuillez remplir les données.";
-                            }
-                        }
-                    } else {// Si pas connecter pour prendre un RDV -> Affiche Btn "Se connecter"
-                        echo '<a href="php/login.php"><button class="btn-product" style="margin-left: 100%;">Se connecter</button></a>';
-                    }
-                    ?>
+                    <a href="php/appointment.php"><button class="btn-product" style="margin-left: 100%;">Prendre un rendez-vous</button></a>
                 </div>
             </section>
         </main>
         </div>
+        <?php }?>
         <script src="js/script.js"></script>
     </body>
     <footer>
