@@ -116,3 +116,42 @@ base des produits déjà existants sur le marché. Vous gèrerez également les 
     ϟ Finalisation de la partie Administrateur(Léo)  
     
     ϟ Début de la partie C# (Lucas)  
+
+### Réunion du 25/11/2020:
+
+    ϟ Avancement de l’Application en C# (Jeremy)  
+    
+    ϟ Amélioration de la Page de Rendez-Vous (Léo et Antoine)  
+    
+    ϟ Avancement du Responsive (Lucas Antoine)  
+    
+    ϟ Finalisation de la partie Administrateur (Antoine)  
+   
+### Réunion du 02/12/2020:
+
+Le projet arrivant quasiment à terme, nous nous sommes un peu plus attardé sur les partie papier tel que le rapport et les documentations utilisateurs & technique :  
+
+    ϟ Création Documentation Utilisateur & Technique (Jeremy)  
+    
+    ϟ Affichage des Rendez-Vous dans la partie Admin (Léo)  
+    
+    ϟ Création / Amélioration du Rapport (Lucas)  
+    
+    ϟ Création Page Voir Rdv + CSS Page Rdv (Antoine)  
+  
+### Réunion du 16/12/2020:
+
+    ϟ Finitions du site web (réglages de petit bug) (Antoine)  
+    
+    ϟ Mise en place des classes (Léo)  
+    
+    ϟ Liaison avec la bdd + interface (Antoine)  
+    
+### Réunion du 24/02/2020:
+Le site web est terminé, il reste quelques petites choses à modifier.
+
+    ϟ Finitions du site web (réglages rdv page admin) (Antoine)  
+    
+    ϟ rdv commerciaux + formulaires (Léo)  
+    
+    ϟ Interface / Controle Utilisateur (Antoine)  
