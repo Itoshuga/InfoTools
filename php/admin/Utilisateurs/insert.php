@@ -2,7 +2,7 @@
     //Connexion à la BBD
     require '../database.php';
  
-    $roleError = $nameError = $prenomError = $mailError = $telError = $adresseError = $cpError = $villeError = $pseudoError = $role = $name = $prenom = $mail = $tel = $adresse = $cp = $ville = $pseudo = "";
+    $roleError = $nameError = $prenomError = $mdpError = $mailError = $telError = $adresseError = $cpError = $villeError = $pseudoError = $role = $name = $prenom = $mdp = $mail = $tel = $adresse = $cp = $ville = $pseudo = "";
     //Si le formulaire n'est pas vide alors:
     if(!empty($_POST)) 
     {
@@ -10,6 +10,8 @@
         $role               = checkInput($_POST['role']);
         $name               = checkInput($_POST['name']);
         $prenom             = checkInput($_POST['prenom']);
+        $options = ['cost' => 12,];
+        $mdp                = password_hash($_POST['mdp'], PASSWORD_BCRYPT, $options);
         $mail               = checkInput($_POST['mail']);
         $tel                = checkInput($_POST['tel']); 
         $adresse            = checkInput($_POST['adresse']); 
@@ -32,6 +34,11 @@
         if(empty($prenom)) //Si la variable prenom est vide alors:
         {
             $prenomError = 'Ce champ ne peut pas être vide';//Message d'erreur
+            $isSuccess = false;
+        }
+        if(empty($mdp)) //Si la variable prenom est vide alors:
+        {
+            $mdpError = 'Ce champ ne peut pas être vide';//Message d'erreur
             $isSuccess = false;
         } 
         if(empty($mail)) //Si la variable mail est vide alors:
@@ -72,8 +79,8 @@
         if($isSuccess && $isUploadSuccess) //Si $isSuccess && $isUploadSuccess sont true alors on Insert les données dans la table utilisateur 
         {
             $db = Database::connect();
-            $statement = $db->prepare("INSERT INTO utilisateur (NumRole,Nom,Prenom,Mail,Tel,Adresse,CP,Ville,Pseudo) values(?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $statement->execute(array($role,$name,$prenom,$mail,$tel,$adresse,$cp,$ville,$pseudo));
+            $statement = $db->prepare("INSERT INTO utilisateur (NumRole,Nom,Prenom,Mdp,Mail,Tel,Adresse,CP,Ville,Pseudo) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $statement->execute(array($role,$name,$prenom,$mdp,$mail,$tel,$adresse,$cp,$ville,$pseudo));
             Database::disconnect();
             header("Location: ../index.php");
         }
@@ -118,16 +125,17 @@
                 <h1><strong>Ajouter un utilisateur</strong></h1>
                 <br>
                 <!-- Formulaire pour insérer un prosuit -->
-                <form class="form" action="insertuti.php" role="form" method="post" enctype="multipart/form-data">
+                <form class="form" action="insert.php" role="form" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="role">Role:</label>
                         <select class="form-control" id="role" name="role">
                         <?php
                            $db = Database::connect();
-                           foreach ($db->query('SELECT * FROM role') as $row) 
-                           {
-                                echo '<option value="'. $row['NumRole'] .'">'. $row['LibRole'] . '</option>';;
-                           }
+                           $statement = $db->query('SELECT * FROM role'); //Sélectionne tous les commerciaux
+                            while($Select = $statement->fetch()) 
+                            {
+                                echo '<option selected="selected" value="'.$Select['NumRole'].'">'.$Select['LibRole'].'</option>';
+                            }
                            Database::disconnect();
                         ?>
                         </select>
@@ -142,6 +150,11 @@
                         <label for="prenom">Prenom:</label>
                         <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prenom" value="<?php echo $prenom;?>">
                         <span class="help-inline"><?php echo $prenomError;?></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="mdp">Mdp:</label>
+                        <input type="text" class="form-control" id="mdp" name="mdp" minlength="8" placeholder="Mot de passe" value="<?php echo $mdp;?>">
+                        <span class="help-inline"><?php echo $mdpError;?></span>
                     </div>
                     <div class="form-group">
                         <label for="mail">Mail:</label>

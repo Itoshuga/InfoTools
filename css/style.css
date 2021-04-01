@@ -15,7 +15,10 @@
 html {
     scroll-behavior: smooth;
 }
-
+a {
+    text-decoration: none;
+    color: white;
+}
 header {
     display: flex;
     height: 10vh;
@@ -32,17 +35,23 @@ header {
     font-size: 30px;
     cursor: pointer;
     display: block;
-    z-index: 999;
+    z-index: 10001;
 }
+
+.menu-btn i.active{
+    color: white;
+}
+
 .menu-btn i.active::before{
     content:"\f00d";
 }  
 .navbar .nav-btn{
     position: fixed;
-    height: 50vh;
-    width: 25%;
+    height: 100vh;
+    width: 100%;
     right:-100%;
-    top: 97px;
+    top: 0;
+    z-index: 1000;
     background: rgb(0, 0, 0);
     text-align: center;
     padding-top: 80px;
@@ -297,13 +306,30 @@ h4 {
     margin-bottom: 10%;
     outline: none;
     border-radius: 50px;
-    transition: background 0.4s;
+    transition: all 0.4s;
 }
 
 .btn-product:hover {
     background: #ffc23f;
 }
+.btn-rdv {
+    background: orange;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    color: white;
+    margin-bottom: 10%;
+    margin-left: 80px;
+    outline: none;
+    border-radius: 50px;
+    transition: all 0.4s;
+}
 
+.btn-rdv:hover {
+    background: #ffc23f;
+}
 /* #endregion */
 
 /* #region [Log In Page] */
@@ -577,7 +603,7 @@ input[type=submit] {
 
 /* #endregion */
 
-/* #region [Appointment Page] */
+/* #region [Appointment PageIndex] */
 .header-appointment {
     background: rgb(255, 255, 255); 
 }
@@ -709,6 +735,20 @@ legend{
 
 input#submit{
     background: orange;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    color: white;
+    margin: auto;
+    outline: none;
+    border-radius: 50px;
+    text-decoration: none;
+    padding: 15px;
+}
+
+a#returnajout{
+    width:550px;
+    background: blue;
     cursor: pointer;
     font-size: 16px;
     border: none;
@@ -1027,6 +1067,13 @@ input.maj:hover{
 }
 /* #endregion */
 
+/* #region [RDV-COMMERCIAL] */
+.rdv-commercial{
+    text-align: center;
+}
+
+/* #endregion */
+
 /* #region [RESPONSIVE] */
 @media screen and (max-width: 1176px){
     .image img{
@@ -1055,3 +1102,9 @@ input.maj:hover{
     }
 }
 /* #endregion */
+
+#my-chart.line {
+    height: 200px;
+    max-width: 400px;
+    margin: 0 auto;
+  }

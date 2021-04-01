@@ -7,12 +7,12 @@
         $id = checkInput($_GET['id']);
     }
 
-   $nameError = $prenomError = $mailError = $telError = $adresseError = $cpError = $villeError = $pseudoError = $role = $name = $prenom = $mail = $tel = $adresse = $cp = $ville = $pseudo = "";
+   $roleError = $nameError = $prenomError = $mailError = $telError = $adresseError = $cpError = $villeError = $pseudoError = $role = $name = $prenom = $mail = $tel = $adresse = $cp = $ville = $pseudo = "";
 
     if(!empty($_POST)) 
     {
-        //Création des variables d'un produit
-        // $role               = checkInput($_POST['role']);
+        //Création des variables d'un utilisateur
+        $role               = checkInput($_POST['role']);
         $name               = checkInput($_POST['name']);
         $prenom             = checkInput($_POST['prenom']);
         $mail               = checkInput($_POST['mail']);
@@ -23,11 +23,11 @@
         $pseudo             = checkInput($_POST['pseudo']);
         $isSuccess          = true;
        
-        //  if(empty($role)) //Si la variable role est vide alors:
-        // {
-        //     $roleError = 'Ce champ ne peut pas être vide';//Message d'erreur
-        //     $isSuccess = false;
-        // }
+         if(empty($role)) //Si la variable role est vide alors:
+        {
+            $roleError = 'Ce champ ne peut pas être vide';//Message d'erreur
+            $isSuccess = false;
+        }
         if(empty($name)) //Si la variable nomP est vide alors:
         {
             $nameError = 'Ce champ ne peut pas être vide';//Message d'erreur
@@ -75,8 +75,8 @@
             $db = Database::connect();
             if($isSuccess)
             {
-                $statement = $db->prepare("UPDATE utilisateur  set Nom = ?, Prenom = ?, Mail = ?, Tel = ?, Adresse = ?, CP = ?, Ville = ?, Pseudo = ? WHERE IdUti = ?");
-                $statement->execute(array($name,$prenom,$mail,$tel,$adresse,$cp,$ville,$pseudo,$id));
+                $statement = $db->prepare("UPDATE utilisateur  set NumRole = ?, Nom = ?, Prenom = ?, Mail = ?, Tel = ?, Adresse = ?, CP = ?, Ville = ?, Pseudo = ? WHERE IdUti = ?");
+                $statement->execute(array($role,$name,$prenom,$mail,$tel,$adresse,$cp,$ville,$pseudo,$id));
             }
             Database::disconnect();
             header("Location: ../index.php");
@@ -88,15 +88,16 @@
         $db = Database::connect();
         $statement = $db->prepare("SELECT * FROM utilisateur where IdUti = ?");
         $statement->execute(array($id));
-        $item = $statement->fetch();
-        $name           = $item['Nom'];
-        $prenom    = $item['Prenom'];
-        $mail          = $item['Mail'];
-        $tel          = $item['Tel'];
-        $adresse       = $item['Adresse'];
-        $cp       = $item['CP'];
-        $ville       = $item['Ville'];
-        $pseudo       = $item['Pseudo'];
+        $item       = $statement->fetch();
+        $role       = $item['NumRole'];
+        $name       = $item['Nom'];
+        $prenom     = $item['Prenom'];
+        $mail       = $item['Mail'];
+        $tel        = $item['Tel'];
+        $adresse    = $item['Adresse'];
+        $cp         = $item['CP'];
+        $ville      = $item['Ville'];
+        $pseudo     = $item['Pseudo'];
 
         Database::disconnect();
     }
@@ -144,6 +145,21 @@
                     <h1><strong>Modifier un Utilisateur</strong></h1>
                     <br>
                     <form class="form" action="<?php echo 'update.php?id='.$id;?>" role="form" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="role">Role:</label>
+                            <select class="form-control" id="role" name="role">
+                            <?php
+                            $db = Database::connect();
+                            $statement = $db->query('SELECT * FROM role'); //Sélectionne tous les commerciaux
+                                while($Select = $statement->fetch()) 
+                                {
+                                    echo '<option selected="selected" value="'.$Select['NumRole'].'">'.$Select['LibRole'].'</option>';
+                                }
+                            Database::disconnect();
+                            ?>
+                            </select>
+                            <span class="help-inline"><?php echo $roleError;?></span>
+                        </div>
                         <div class="form-group">
                             <label for="name">Nom :</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="Nom" value="<?php echo $name;?>">

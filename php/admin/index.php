@@ -73,7 +73,7 @@
             <div class="row">
                 <h1><strong>Liste des utilisateurs </strong><a href="Utilisateurs/insert.php" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Ajouter</a></h1>
             </div>
-            <!-- Tableau Affiche tout les produits -->
+            <!-- Tableau Affiche tout les utilisateurs -->
             <table class="table table-stripped table-bordered">
                 <thead>
                     <tr>
@@ -114,7 +114,56 @@
                     ?>
                 </tbody>
             </table>
-        </div>
+            <div class="row">
+                <h1><strong>Liste des rendez-vous </strong></h1>
+            </div>
+            <!-- Tableau Affiche tout les rendez-vous -->
+            <table class="table table-stripped table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Mail</th>
+                        <th>Tel</th>
+                        <th>Contenu</th>
+                        <th>Date</th>
+                        <th>Commercial</th>
+                        <!-- <th>Commerciaux</th> -->
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        $statement = $db->query('SELECT IdRDV, IdUti, Nom, Prenom, Mail, Tel, Contenu, DteRDV FROM rdv ORDER BY IdRDV DESC');
+                        while($rdvd = $statement->fetch()) 
+                        {
+                            $statement2 = $db->query('SELECT IdRDV FROM rdv_commercial');
+                            $rdv = $statement2->fetch();
+                            $rdvid = $rdvd['IdRDV'];
+                            echo '<tr>';
+                            echo '<td>'. $rdvd['IdRDV'] . '</td>';
+                            echo '<td>'. $rdvd['Nom'] . '</td>';
+                            echo '<td>'. $rdvd['Prenom'] . '</td>';
+                            echo '<td>'. $rdvd['Mail'] . '</td>';
+                            echo '<td>'. $rdvd['Tel'] . '</td>';
+                            echo '<td>'. $rdvd['Contenu'] . '</td>';
+                            echo '<td>'. $rdvd['DteRDV'] . '</td>';
+                            echo '<td style="text-align: center;">'. $rdvd['IdUti'] . '</td>';
+                            echo '<td width=300>';
+                            if($rdvd['IdUti'] == NULL){
+                                echo '<a class="btn btn-warning" href="Rendez-Vous/assign.php?id='.$rdvd['IdRDV'].'"><span class="glyphicon glyphicon-ok"></span> Assigner Commercial</a><br><br>';
+                            }
+                            echo ' ';
+                            echo '<a class="btn btn-primary" href="Rendez-Vous/update.php?id='.$rdvd['IdRDV'].'"><span class="glyphicon glyphicon-pencil"></span> Modifier</a>';
+                            echo ' ';
+                            echo '<a class="btn btn-danger" href="Rendez-Vous/delete.php?id='.$rdvd['IdRDV'].'"><span class="glyphicon glyphicon-remove"></span> Supprimer</a>';
+                            echo '</td>';
+                        }
+                        echo '</tr>';
+                    ?>
+                </tbody>
+            </table>
         <?php
         Database::disconnect();
         ?>

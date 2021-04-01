@@ -79,7 +79,7 @@ session_start();
                                 $donnees['PrixProd'] = $donnees['PrixProd'] * $donnees['Quantite'];
                                 $PrixTotal += $donnees['PrixProd'];
                             }
-                            echo '<h1 class="result"><span>Total de vos dépense : '.$PrixTotal.' €</span></h1>';
+                            echo '<h1 class="result"><span>Total de vos dépense sur InfoTools: '.$PrixTotal.' €</span></h1>';
                         ?>
                         </div>
                     </div>

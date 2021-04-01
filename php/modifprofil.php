@@ -65,52 +65,66 @@ if(isset($_SESSION['IdUti']))
         <title>InfoTools - Landing Page</title>
     </head>
     <body>
+        <!-- #region Entête -->
         <header> 
-
             <!-- Logo + Text -->
             <div class="logo-container">
                 <img src="../img/logo/algorithm.svg" alt="logo" />
                 <h4 class="logo"><span class="color-info">Info</span>-<b>Tools</b></h4>
             </div>
-            
+                
             <!-- Création de la Barre de Navigation -->
             <nav>
                 <ul class="nav-links">
                     <li><a class="link" href="../index.php">Accueil</a></li>
                     <li><a class="link" href="product.php">Produits</a></li>
                     <li><a class="link" href="appointment.php">Rendez-Vous</a></li>
-                    <li><a class="link" href="contact.php">Contact</a></li>
+                    <!-- <li><a class="link" href="php/contact.php">Contact</a></li> -->
                 </ul>
                 <nav class="navbar">
-                    <?php 
-                        //Connexion/Inscription 
-                        include 'php/database.php';//Inclusion de la bdd
-                        global $db;
-        
-                        if(isset($_SESSION['Pseudo']) and $_SESSION['Mdp']){ //Si la Session pseudo et mdp n'est pas nul alors CONNEXION            
-                                echo'<ul class="nav-btn">';
-                                    echo'<h1>Mon Compte</h1><br><br>';
-                                    echo'<li><a class="menu-btn" href="php/profil.php?id='.$_SESSION['IdUti'].'"><button class="disconnect">Mon Profil</button></a></li>';
-                                    if (isset($_SESSION['Pseudo']) and $_SESSION['Mdp'] and $_SESSION['NumRole'] == 2) {
-                                            echo'<li><a class="menu-btn" href="php/admin/index.php"><button class="disconnect">Admin</button></a></li>';
-                                    }
-                                    // echo'<a href="php/signup.php"><button class="signup" href="">S\'Inscrire</button></a>
-                                    echo'<li><a class="menu-btn" href="php/logout.php"><button class="disconnect">Se Déconnecter</button></a></li>';
-                                    echo'</ul>';
-                            }
-                            else{//Sinon PAS CONNEXION
-                                echo'<ul class="nav-btn">';
-                                    echo'<h1>Mon Compte</h1><br><br>';
-                                    echo'<li><a class="menu-btn" href="php/login.php"><button class="disconnect">Se Connecter</button></a></li>';
-                                    echo'<li><a class="menu-btn" href="php/signup.php"><button class="disconnect" href="">S\'Inscrire</button></a></li>';
-                                    echo'</ul>';
-                            }
 
+                    <!-- Connexion / Inscription -->
+                    <?php
+                        // Si les inputs / session [pseudo] & [mdp] ne sont pas vide alors on se connecte
+                        if(isset($_SESSION['Pseudo']) and $_SESSION['Mdp']){
+                            echo '<ul class="nav-btn">';
+                            echo    '<h1>Menu</h1><br/><br/>';
+                            echo    '<li><a class="menu-btn" href="../index.php"><button class="disconnect">Accueil</button></a></li>';
+                            echo    '<li><a class="menu-btn" href="product.php"><button class="disconnect">Produits</button></a></li>';
+                            echo    '<li><a class="menu-btn" href="appointment.php"><button class="disconnect">Rendez-Vous</button></a></li>';
+                            echo    '<h1 style="margin-top:20vh;">Mon Compte</h1><br><br>';
+                            echo    '<li><a class="menu-btn" href="profil.php?id='.$_SESSION['IdUti'].'"><button class="disconnect">Mon Profil</button></a></li>';
                             
+                            // Si le NumRole de l'utilisateur est égal à 2, alors connexion en tant qu'admin
+                            if (isset($_SESSION['Pseudo']) and $_SESSION['Mdp'] and $_SESSION['NumRole'] == 2) {
+                                echo'<li><a class="menu-btn" href="admin/index.php"><button class="disconnect">Admin</button></a></li>';
+                            }
+                            
+                                echo'<li><a class="menu-btn" href="logout.php"><button class="disconnect">Se Déconnecter</button></a></li>';
+                            echo'</ul>';
+                        } 
+                        
+                        // Sinon l'utilisateur n'est pas connecté
+                        else {
+                            echo'<ul class="nav-btn">';
+                                echo '<h1>Menu</h1><br/><br/>';
+                                echo '<li><a class="menu-btn" href="index.php"><button class="disconnect">Accueil</button></a></li>';
+                                echo '<li><a class="menu-btn" href="#produit"><button class="disconnect">Produits</button></a></li>';
+                                echo '<li><a class="menu-btn" href="#rendezvous"><button class="disconnect">Rendez-Vous</button></a></li>';
+                                echo'<h1 style="margin-top:20vh;">Mon Compte</h1><br><br>';
+                                echo'<li><a class="menu-btn" href="login.php"><button class="disconnect">Se Connecter</button></a></li>';
+                                echo'<li><a class="menu-btn" href="signup.php"><button class="disconnect" href="">S\'Inscrire</button></a></li>';
+                            echo'</ul>';
+                        }
                     ?>
                 </nav>
             </nav>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+
         </header>
+    <!-- #endregion -->
         <div align="center" class="main-image">
             <div class="edition">
                 <h2>Edition de mon profil !</h2> 

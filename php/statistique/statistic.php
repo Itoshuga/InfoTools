@@ -5,27 +5,30 @@ session_start();
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="../css/style.css" />
+        <link rel="stylesheet" href="../../css/style.css" />
         <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" href="../img/logo/algorithm.svg" />
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
+
+        <link rel="shortcut icon" href="../../img/logo/algorithm.svg" />
         <script src="js/diashow.js"></script>
-        <title>Profil</title>
+        <title>Statistique</title>
     </head>
     <body>
         <!-- #region Entête -->
             <header> 
                 <!-- Logo + Text -->
                 <div class="logo-container">
-                    <img src="../img/logo/algorithm.svg" alt="logo" />
+                    <img src="../../img/logo/algorithm.svg" alt="logo" />
                     <h4 class="logo"><span class="color-info">Info</span>-<b>Tools</b></h4>
                 </div>
                     
                 <!-- Création de la Barre de Navigation -->
                 <nav>
                     <ul class="nav-links">
-                        <li><a class="link" href="../index.php">Accueil</a></li>
-                        <li><a class="link" href="product.php">Produits</a></li>
-                        <li><a class="link" href="appointment.php">Rendez-Vous</a></li>
+                        <li><a class="link" href="../../index.php">Accueil</a></li>
+                        <li><a class="link" href="../product.php">Produits</a></li>
+                        <li><a class="link" href="../appointment.php">Rendez-Vous</a></li>
                         <!-- <li><a class="link" href="php/contact.php">Contact</a></li> -->
                     </ul>
                     <nav class="navbar">
@@ -33,7 +36,7 @@ session_start();
                         <!-- Connexion / Inscription -->
                         <?php
                             // Liaison avec la base de donnée 
-                            include 'database.php';
+                            include '../database.php';
                             global $db;
 
                             // Si les inputs / session [pseudo] & [mdp] ne sont pas vide alors on se connecte
@@ -74,50 +77,50 @@ session_start();
                     <i class="fas fa-bars"></i>
                 </div>
 
+                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                    <script type="text/javascript">
+                        google.charts.load('current', {'packages':['corechart']});
+                        google.charts.setOnLoadCallback(drawChart);
+
+                        function drawChart() {
+
+                            var data = google.visualization.arrayToDataTable([
+                            ['Task', 'Hours per Day'],
+                            ['Work',     11],
+                            ['Eat',      2],
+                            ['Commute',  2],
+                            ['Watch TV', 2],
+                            ['Sleep',    7]
+                            ]);
+
+                            var options = {
+                            title: 'My Daily Activities'
+                            };
+
+                            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+                            chart.draw(data, options);
+                        }
+                    </script>
+
             </header>
         <!-- #endregion -->
 
         <!-- #region Profil -->
-            <?php
-
-                // Récupére l'id utilisateur dans l'url
-                if(isset($_GET['id']) AND $_GET['id'] > 0)
-                {
-                    $getid = intval($_GET['id']);
-                    $requser = $db->prepare('SELECT * FROM utilisateur WHERE IdUti = ?'); //Requête
-                    $requser->execute(array($getid)); //Execution de la requête
-                    $userinfo = $requser->fetch();
-                
-            ?>
-                <div class="main-image">
-                    <?php
-                        echo '<h1>Voici ton Profil '.$userinfo['Prenom'].'</h1>';
-                    ?>
-                    <p>Tu peux modifier les données de ton profil si tu le souhaite !</p>
-                    <br/><br/>
-                    <a class="profile" href="modifprofil.php">Modifier mon Profil</a>
-                    <a class="profilachat" href="pageachat.php?id=<?php echo $_SESSION['IdUti'] ?>">Voir mes achats</a>
-                    <div class="profil">
-                    <ul>
-                        <li><?php echo '<label>Mon Pseudo :</label><h2>'.$userinfo['Pseudo'].'</h2>'; ?></li>
-                        <li><?php echo '<label>Mon Adresse Mail :</label><h2>'.$userinfo['Mail'].'</h2>'; ?></li>
-                        <li><?php echo '<label>Mon Nom :</label><h2>'.$userinfo['Nom'].'</h2>'; ?></li>
-                        <li><?php echo '<label>Mon Prénom :</label><h2>'.$userinfo['Prenom'].'</h2>'; ?></li>
-                    </ul>
+            
+            <section class="statistic">
+                <div class="container">
+                    <div id="piechart" style="width: 900px; height: 500px;"></div>
                 </div>
-                </div>
-                <br />
+            </section>
 
-            <?php
-                }
-            ?>
         <!-- #endregion -->
 
         <!-- #region Footer -->
             <footer>
                 <div class="footer">
                     <div class="logo-container-footer">
-                        <img src="../img/logo/algorithm.svg" alt="logo" />
+                        <img src="../../img/logo/algorithm.svg" alt="logo" />
                         <h4 class="logo"><span class="color-info">Info</span>-<b>Tools</b></h4>
                     </div>
                     <div class="copyright">Copyright &copy 2020. Tous les droits sont réservés.</div>
