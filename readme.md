@@ -155,3 +155,9 @@ Le site web est terminé, il reste quelques petites choses à modifier.
     ϟ rdv commerciaux + formulaires (Léo)  
     
     ϟ Interface / Controle Utilisateur (Antoine)  
+
+
+
+## Apperçu
+
+![alt text](https://github.com/Itoshuga/InfoTools/blob/main/extra/apperçu.png?raw=true)
