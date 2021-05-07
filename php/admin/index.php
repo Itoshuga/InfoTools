@@ -135,7 +135,7 @@
                 </thead>
                 <tbody>
                     <?php
-                        $statement = $db->query('SELECT IdRDV, IdUti, Nom, Prenom, Mail, Tel, Contenu, DteRDV FROM rdv ORDER BY IdRDV DESC');
+                        $statement = $db->query('SELECT r.IdRDV, IdUti, Nom, Prenom, Mail, Tel, Contenu, DteRDV FROM rdv r INNER JOIN prospects p ON r.IdProsp=p.IdProsp ORDER BY r.IdRDV DESC');
                         while($rdvd = $statement->fetch()) 
                         {
                             $statement2 = $db->query('SELECT IdRDV FROM rdv_commercial');

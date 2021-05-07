@@ -97,7 +97,7 @@
 
                     <div class="form-group">
                         <label for="Mail">Email :</label>
-                        <input type="email" class="form-control" id="mail" name="mail" placeholder="Mail" required>
+                        <input type="text" class="form-control" id="mail" name="mail" placeholder="Mail" required>
                     </div>
 
                     <div class="form-group">
@@ -138,15 +138,32 @@
                 if(isset($_POST['submit'])){
                     extract($_POST);
 
+                    $idprosp = $db->query("SELECT MAX(IdProsp) as idprosp FROM prospects"); //Selectionne la dernière ligne de la table pointage l'utilisateur correspond à l'id
+                    $idProsp = $idprosp->fetch();
+
+                    $idprosp = $idProsp['idprosp'];
+
                     //Prépartion de la requête 
-                    $rdv = $db->prepare("INSERT INTO rdv(Nom, Prenom, Mail, Tel, Contenu, DteRDV) VALUES('$nom', '$prenom', '$mail', '$tel', '$contenu', '$daterdv')");
+                    $rdv = $db->prepare("INSERT INTO rdv(IdProsp, Contenu, DteRDV) VALUES('$idprosp', '$contenu','$daterdv')");
                     $rdv->execute([
-                    'Nom' => $nom,
-                    'Prenom' => $prenom,
-                    'Mail' => $mail,
-                    'Tel' => $tel,
-                    'Contenu' => $contenu,
-                    'DateRDV' => $daterdv
+                        'IdProsp' => $idprosp,
+                        'Contenu' => $contenu,
+                        'DteRDV' => $daterdv
+                    ]);
+
+
+                    $maxid = $db->query("SELECT MAX(IdRDV) as MaxId FROM rdv"); //Selectionne la dernière ligne de la table pointage l'utilisateur correspond à l'id
+                    $MaxId = $maxid->fetch();
+
+                    $maxid = $MaxId['MaxId'];
+
+                    $statement = $db->prepare("INSERT INTO prospects(IdRDV, Nom, Prenom, Mail, Tel) VALUES('$maxid', '$nom', '$prenom', '$mail', '$tel')"); //Prepare la requete qui insère dans la table commercial l'IdRDV et l'IdUti
+                    $statement->execute([ //Execute la requete
+                        'IdRDV' => $maxid,
+                        'Nom' => $nom,
+                        'Prenom' => $prenom,
+                        'Mail' => $mail,
+                        'Tel' => $tel
                     ]);
                     echo '<div class="">';
                         echo '<center><h3 class="text-success">Votre rendez-vous a bien été prit en compte.</h3></center>';
