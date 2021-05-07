@@ -45,7 +45,7 @@ session_start();
                         global $db;
 
                         // Si les inputs / session [pseudo] & [mdp] ne sont pas vide alors on se connecte
-                        if(isset($_SESSION['Pseudo']) and $_SESSION['Mdp']){
+                        if(isset($_SESSION['Mail']) and $_SESSION['Mdp']){
                             echo '<ul class="nav-btn">';
                             echo    '<h1>Menu</h1><br/><br/>';
                             echo    '<li><a class="menu-btn" href="index.php"><button class="disconnect">Accueil</button></a></li>';
@@ -55,7 +55,7 @@ session_start();
                             echo    '<li><a class="menu-btn" href="php/profil.php?id='.$_SESSION['IdUti'].'"><button class="disconnect">Mon Profil</button></a></li>';
                             
                             // Si le NumRole de l'utilisateur est égal à 2, alors connexion en tant qu'admin
-                            if (isset($_SESSION['Pseudo']) and $_SESSION['Mdp'] and $_SESSION['NumRole'] == 2) {
+                            if (isset($_SESSION['Mail']) and $_SESSION['Mdp'] and $_SESSION['NumRole'] == 2) {
                                 echo'<li><a class="menu-btn" href="php/admin/index.php"><button class="disconnect">Admin</button></a></li>';
                             }
                             
@@ -134,7 +134,7 @@ session_start();
     <!-- #region Rendez-Vous -->
         <?php 
             // Si l'utilisateur est un commerciale alors il peut avoir accès à ses rendez-vous
-            if (isset($_SESSION['Pseudo']) and $_SESSION['Mdp'] and $_SESSION['NumRole'] == 1) {
+            if (isset($_SESSION['Mail']) and $_SESSION['Mdp'] and $_SESSION['NumRole'] == 1) {
                echo'<div id="rendezvous"class="header-appointment ">
                 <main>
                     <h2 class="title">Voir mes rendez-vous</h2>

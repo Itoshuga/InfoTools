@@ -83,9 +83,9 @@
 
                                 <form method="POST">
                                     <div class="formulaire-lname">
-                                        <input type="text" name="lpseudo" autocomplete="off" required/>
-                                        <label for="lpseudo" class="label-name">
-                                            <span class="lpseudo-name">Pseudo *</span>
+                                        <input type="text" name="lmail" autocomplete="off" required/>
+                                        <label for="lmail" class="label-name">
+                                            <span class="lpseudo-name">Adresse Mail *</span>
                                         </label>
                                     </div>
                                     <div class="formulaire-lpassword">
@@ -105,9 +105,9 @@
                                     include 'database.php';
                                     global $db;
 
-                                    if(!empty($lpseudo) && !empty($lpassword)) {
-                                        $q = $db->prepare("SELECT * FROM utilisateur WHERE Pseudo = '$lpseudo'");
-                                        $q->execute(['Pseudo' => $lpseudo]);
+                                    if(!empty($lmail) && !empty($lpassword)) {
+                                        $q = $db->prepare("SELECT * FROM utilisateur WHERE Mail = '$lmail'");
+                                        $q->execute(['Mail' => $lmail]);
                                         $result = $q->fetch();
 
                                         
@@ -117,8 +117,9 @@
                                         
                                             if(password_verify($lpassword, $result['Mdp'])) {
                                                 session_start();
-                                                $_SESSION['Pseudo'] = $result['Pseudo'];
+                                                $_SESSION['Mail'] = $result['Mail'];
                                                 $_SESSION['Mdp'] = $result['Mdp'];
+                                                $_SESSION['Pseudo'] = $result['Pseudo'];
                                                 $_SESSION['IdUti'] = $result['IdUti'];
                                                 $_SESSION['NumRole'] = $result['NumRole'];
 
@@ -127,11 +128,36 @@
                                             } else {
                                                 echo '<h2>Mot de passe Inccorect.</h2>';
                                             }
-                                        } else {
-                                            echo '<h2>' .$lpseudo. ' n\'existe pas.</h2>';
+                                        } else {    
+                                            echo '<h2>' .$lmail. ' n\'existe pas.</h2>';
                                         }
                                     } else {
                                         echo '<h2>Champs Incomplets</h2>';
+                                    }
+                                    // Eléments d'authentification LDAP
+                                    $ldaprdn  = $lmail;     // DN ou RDN LDAP
+                                    $ldappass = $lpassword;  // Mot de passe associé
+
+                                    // Connexion au serveur LDAP
+                                    $ldapconn = ldap_connect("ldap://51.75.214.56")
+                                        or die("Impossible de se connecter au serveur LDAP.");
+
+                                    if ($ldapconn) {
+
+                                        // Connexion au serveur LDAP
+                                        $ldapbind = ldap_bind($ldapconn, $ldaprdn, $ldappass);
+
+                                        // Vérification de l'authentification
+                                        if ($ldapbind) {
+                                            session_start();
+                                            $_SESSION['IdUti'] = $result['IdUti'];
+                                            echo "Connexion LDAP réussie...";
+                                            header('Location: ../Index.php?id='.$_SESSION['IdUti']);
+                                            exit();
+                                        } else {
+                                            echo "Connexion LDAP échouée...";
+                                        }
+
                                     }
                                 }
                                 ?>
