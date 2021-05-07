@@ -89,7 +89,7 @@
                                         </label>
                                     </div>
                                     <div class="formulaire-lpassword">
-                                        <input type="password" name="lpassword" minlength="8" autocomplete="off" required/>
+                                        <input type="password" name="lpassword" minlength="7" autocomplete="off" required/>
                                         <label for="lpassword" class="label-name">
                                             <span class="lpseudo-name">Mot de Passe *</span>
                                         </label>
@@ -150,12 +150,16 @@
                                         // Vérification de l'authentification
                                         if ($ldapbind) {
                                             session_start();
+                                            $_SESSION['Mail'] = $result['Mail'];
+                                            $_SESSION['Mdp'] = $result['Mdp'];
+                                            $_SESSION['Pseudo'] = $result['Pseudo'];
                                             $_SESSION['IdUti'] = $result['IdUti'];
-                                            echo "Connexion LDAP réussie...";
-                                            header('Location: ../Index.php?id='.$_SESSION['IdUti']);
+                                            $_SESSION['NumRole'] = $result['NumRole'];
+                                            echo "<h2>Connexion LDAP réussie...</h2>";
+                                            header('refresh:3;url=../Index.php?id='.$_SESSION['IdUti']);
                                             exit();
                                         } else {
-                                            echo "Connexion LDAP échouée...";
+                                            echo "<h2>Connexion LDAP échouée...</h2>";
                                         }
 
                                     }
