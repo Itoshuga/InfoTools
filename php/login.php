@@ -123,7 +123,8 @@
                                                 $_SESSION['IdUti'] = $result['IdUti'];
                                                 $_SESSION['NumRole'] = $result['NumRole'];
 
-                                                header('Location: ../Index.php?id='.$_SESSION['IdUti']);
+                                                echo "<h2>Connexion réussie ! Redirection...</h2>";
+                                                header('refresh:3;url=../Index.php?id='.$_SESSION['IdUti']);
                                                 exit();
                                             } else {
                                                 echo '<h2>Mot de passe Inccorect.</h2>';
@@ -155,7 +156,7 @@
                                             $_SESSION['Pseudo'] = $result['Pseudo'];
                                             $_SESSION['IdUti'] = $result['IdUti'];
                                             $_SESSION['NumRole'] = $result['NumRole'];
-                                            echo "<h2>Connexion LDAP réussie...</h2>";
+                                            echo "<h2>Connexion LDAP réussie ! Redirection...</h2>";
                                             header('refresh:3;url=../Index.php?id='.$_SESSION['IdUti']);
                                             exit();
                                         } else {
