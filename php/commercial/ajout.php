@@ -83,23 +83,21 @@
             <form method="post">
                 <div class="container">
                     <div class="form-group">
-                        <label for="Nom">Nom :</label>
-                        <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
-                    </div>
+                        <label for="Nom">Prospect</label></br>
+                        <select name="ComboBoxProspect" id="Cmbox" required>
+                            <option value="">Select Prospect</option>
+                            <?php
+                                include '../database.php';
+                                global $db;
+                                $idprosp;
 
-                    <div class="form-group">
-                        <label for="Prenom">Prénom :</label>
-                        <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Mail">Email :</label>
-                        <input type="email" class="form-control" id="mail" name="mail" placeholder="Mail" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Tel">Téléphone :</label>
-                        <input type="text" class="form-control" id="tel" name="tel" placeholder="Téléphone" required>
+                                $Query = $db->query('SELECT IdProsp, Nom, Prenom FROM prospects');
+                                while($Data = $Query->fetch()) {
+                                    echo '<option value="' .$Data["IdProsp"]. '">' .$Data["Nom"]. ' ' .$Data["Prenom"]. '</option>';
+                                    $idprosp = $Data["IdProsp"];
+                                }
+                            ?>
+                        </select>
                     </div>
 
                     <div class="form-group">
@@ -127,28 +125,31 @@
                 </div>
             </form>
         <!-- #endregion -->
-        
+                                
+        <script>
+            var e = document.getElementById("Cmbox"); 
+            var value = e.options[e.selectedIndex].value;
+        </script>
+
         <!-- #region Partie PHP -->
             <?php
                 // Extraction du formulaire d'inscription avce la méthode $_POST
                 if(isset($_POST['submit'])){
                     extract($_POST);
-                    include "../database.php";
-                    global $db;
 
+                    $iduti = $_SESSION['IdUti'];
+                    
+                    echo "<script>alert(\"".$idprosp."\")</script>";
                     //Prépartion de la requête 
-                    $rdv = $db->prepare("INSERT INTO rdv(Nom, Prenom, Mail, Tel, Contenu, DteRDV) VALUES('$nom', '$prenom', '$mail', '$tel', '$contenu', '$daterdv')");
+                    $rdv = $db->prepare("INSERT INTO rdv(IdProsp, IdUti, Contenu, DteRDV) VALUES('$idprosp', '$iduti', '$contenu', '$daterdv')");
                     $rdv->execute([
-                    'Nom' => $nom,
-                    'Prenom' => $prenom,
-                    'Mail' => $mail,
-                    'Tel' => $tel,
+                    'IdProsp' => $idprosp,
+                    'IdUti' => $iduti,
                     'Contenu' => $contenu,
                     'DateRDV' => $daterdv
                     ]);
-                    
-                    $iduti = $_SESSION['IdUti'];
 
+                    
                     $maxid = $db->query("SELECT MAX(IdRDV) as MaxId FROM rdv"); //Selectionne la dernière ligne de la table pointage l'utilisateur correspond à l'id
                     $MaxId = $maxid->fetch();
 
