@@ -110,15 +110,12 @@ session_start();
     <table class="table table-stripped table-bordered" style="width: 1500px; margin:auto; text-align:center;">
         <thead>
             <tr>
-                <th>IdRdv</th>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Mail</th>
-                <th>Tel</th>
+            <th>IdRdv</th>
+                <th>IdProsp</th>
+                <th>IdUti</th>
                 <th>Contenu</th>
                 <th>DteRDV</th>
                 <th>Action</th>
-                <!-- <th>Actions</th> -->
             </tr>
         </thead>
         <tbody>
@@ -131,16 +128,14 @@ session_start();
             date_default_timezone_set('Europe/Paris');
             $dateheure = date('Y-m-d H:i:s');
 
-            $statement = $db->query("SELECT C.IdRDV, Nom, Prenom, Mail, Tel, Contenu, DteRDV FROM rdv R INNER JOIN rdv_commercial C ON R.IdRDV = C.IdRDV WHERE C.IdUti = $id AND DteRDV > '$dateheure' ORDER BY DteRDV");
+            $statement = $db->query("SELECT C.IdRDV, IdProsp, R.IdUti, Contenu, DteRDV FROM rdv R INNER JOIN rdv_commercial C ON R.IdRDV = C.IdRDV WHERE C.IdUti = $id AND DteRDV > '$dateheure' ORDER BY DteRDV");
             $statement->execute(array($id));
             while($rdv = $statement->fetch()) 
             {
                 echo '<tr>';
                 echo '<td>'. $rdv['IdRDV'] . '</td>';
-                echo '<td>'. $rdv['Nom'] . '</td>';
-                echo '<td>'. $rdv['Prenom'] . '</td>';
-                echo '<td>'. $rdv['Mail'] . '</td>';
-                echo '<td>'. $rdv['Tel'] . '</td>';
+                echo '<td>'. $rdv['IdProsp'] . '</td>';
+                echo '<td>'. $rdv['IdUti'] . '</td>';
                 echo '<td>'. $rdv['Contenu'] . '</td>';
                 echo '<td>'. $rdv['DteRDV'] . '</td>';
                 echo '<td width=300>';
@@ -161,10 +156,8 @@ session_start();
         <thead>
             <tr>
                 <th>IdRdv</th>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Mail</th>
-                <th>Tel</th>
+                <th>IdProsp</th>
+                <th>IdUti</th>
                 <th>Contenu</th>
                 <th>DteRDV</th>
                 <th>Action</th>
@@ -178,16 +171,14 @@ session_start();
                 $id = checkInput($_GET['id']);
             }
 
-            $statement = $db->query("SELECT C.IdRDV, Nom, Prenom, Mail, Tel, Contenu, DteRDV FROM rdv R INNER JOIN rdv_commercial C ON R.IdRDV = C.IdRDV WHERE C.IdUti = $id and DteRDV < current_timestamp() ORDER BY DteRDV DESC");
+            $statement = $db->query("SELECT C.IdRDV, IdProsp, R.IdUti, Contenu, DteRDV FROM rdv R INNER JOIN rdv_commercial C ON R.IdRDV = C.IdRDV WHERE C.IdUti = $id and DteRDV < current_timestamp() ORDER BY DteRDV DESC");
             $statement->execute(array($id));
             while($rdv = $statement->fetch()) 
             {
                 echo '<tr>';
                 echo '<td>'. $rdv['IdRDV'] . '</td>';
-                echo '<td>'. $rdv['Nom'] . '</td>';
-                echo '<td>'. $rdv['Prenom'] . '</td>';
-                echo '<td>'. $rdv['Mail'] . '</td>';
-                echo '<td>'. $rdv['Tel'] . '</td>';
+                echo '<td>'. $rdv['IdProsp'] . '</td>';
+                echo '<td>'. $rdv['IdUti'] . '</td>';
                 echo '<td>'. $rdv['Contenu'] . '</td>';
                 echo '<td>'. $rdv['DteRDV'] . '</td>';
                 echo '<td width=300>';
