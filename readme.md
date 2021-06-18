@@ -1,7 +1,7 @@
 ## 𝗜𝗻𝗳𝗼𝗧𝗼𝗼𝗹𝘀
 
 Par Lucas, Antoine, Léo & Jérémy  
-*Le dossier extra contient un apperçu de l'index en .png et la base de donnée .sql*
+*Le dossier extra contient un aperçu de l'index en .png et la base de donnée .sql*
 
 ### Table des Matières
 
